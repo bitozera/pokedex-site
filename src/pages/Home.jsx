@@ -9,6 +9,8 @@ import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
 
 export const Home = ({ setPokemonData }) => {
+  //projeto no GitHub
+
   // SOBRE useState()
   // gerenciar o estado de algum valor
   // getter and setter
@@ -47,7 +49,6 @@ export const Home = ({ setPokemonData }) => {
   //   .then((res) => res.json())
   //   .then((json) => setUser(json));
   // },[]);
-  
 
   const [pokemons, setPokemons] = useState([]); //ARRAY LIST PRINCIPAL
   const [pokemons2, setPokemons2] = useState([]); // ARRAY AUXILIAR
