@@ -21,10 +21,10 @@ export const Profile = ({ pokemonData }) => {
     }
   }, []);
 
-  if(!pokemonData){
+  if (!pokemonData) {
     return null;
   }
- 
+
   return (
     //navbar entrega a variavel hidesearch para não utilizar o campo de pesquisa, pois nesta page não é preciso
     <Container maxWidth="md">
@@ -37,6 +37,7 @@ export const Profile = ({ pokemonData }) => {
           padding={5}
         >
           <Typography variant={"h4"}> {name} </Typography>
+
           <Box
             component={"img"}
             src={sprites.other["official-artwork"].front_default}
@@ -44,6 +45,31 @@ export const Profile = ({ pokemonData }) => {
           ></Box>
           <PokemonDataTable pokemonData={pokemonData}></PokemonDataTable>
           <Box>
+            <Divider>Variações</Divider>
+            <Box display={"flex"} justifyContent={"space-between"}>
+              {sprites.other["home"].front_shiny !== null ? (
+                <Box
+                  component={"img"}
+                  src={sprites.other["home"].front_shiny}
+                  width={"25%"}
+                ></Box>
+              ) : null}
+              {sprites.other["home"].front_female !== null ? (
+                <Box
+                  component={"img"}
+                  src={sprites.other["home"].front_female}
+                  width={"25%"}
+                ></Box>
+              ) : null}
+              {sprites.other["home"].front_shiny_female !== null ? (
+                <Box
+                  component={"img"}
+                  src={sprites.other["home"].front_shiny_female}
+                  width={"25%"}
+                ></Box>
+              ) : null}
+            </Box>
+
             <Divider>Ataques</Divider>
             <Box textAlign={"center"} marginTop={"10px"}>
               {moves.map((moveData, key) => (

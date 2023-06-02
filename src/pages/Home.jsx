@@ -9,6 +9,46 @@ import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
 
 export const Home = ({ setPokemonData }) => {
+  // SOBRE useState()
+  // gerenciar o estado de algum valor
+  // getter and setter
+
+  //SOBRE useEffect()
+  //fazer algo a partir de uma ação nossa, eu determino qual que é ação
+  //1 - useEffect utilização
+  // useEffect(() => {
+  //   console.log("roda a cada renderização");
+  // });
+
+  //2 - array de dependências
+  // useEffect(() => {
+  //   console.log("só roda ao incrementar valor");
+  //só roda quando pokemons for alterado
+  // },[pokemons]);
+
+  //3 - array de dependências vazio ---> geralmente utiliza isso para carregar algo externo (api por exemplo)
+  // useEffect(() => {
+  //   console.log("só executa  uma vez");
+  // },[]);
+
+  // 4 - clean up function - função de limpeza de memória
+  // useEffect(() => {
+  //   const timer = setTimeout(( => {
+  //    console.log("o incrementador foi alterado");
+  //    },2000));
+  //     return () => {
+  //         clearTimeout(timer);
+  //     }
+  // },[pokemons]);
+
+  //5 - fetch com useEffect
+  // useEffect(() => {
+  //   fetch("https://api.github.com/users/bitozera")
+  //   .then((res) => res.json())
+  //   .then((json) => setUser(json));
+  // },[]);
+  
+
   const [pokemons, setPokemons] = useState([]); //ARRAY LIST PRINCIPAL
   const [pokemons2, setPokemons2] = useState([]); // ARRAY AUXILIAR
 
@@ -31,7 +71,7 @@ export const Home = ({ setPokemonData }) => {
     //endPoints retorna já o link de api de todos os pokemon e seus detalhes
     //TOTAL DE POKEMONS = 1008
     var endPoints = [];
-    for (var i = 1; i < 30; i++) {
+    for (var i = 1; i < 152; i++) {
       var urlPokemon = "https://pokeapi.co/api/v2/pokemon/" + i + "/";
       endPoints.push(urlPokemon);
     }
@@ -104,7 +144,10 @@ export const Home = ({ setPokemonData }) => {
                 <Box onClick={() => pokemonPickHandler(pokemon.data)}>
                   <PokemonCard
                     name={pokemon.data.name}
-                    image={pokemon.data.sprites.other['official-artwork'].front_default}
+                    image={
+                      pokemon.data.sprites.other["official-artwork"]
+                        .front_default
+                    }
                     types={pokemon.data.types}
                   ></PokemonCard>
                 </Box>

@@ -33,7 +33,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function PokemonDataTable({pokemonData}) {
   const {height, weight, types} = pokemonData;
   return (
-    <TableContainer component={Paper} sx={{height: "fit-content", maxWidth: "500px", boxShadow: null}}>
+    <TableContainer component={Paper} sx={{height: "fit-content", maxWidth: "500px", boxShadow: "none"}}>
       <Table  aria-label="customized table">
         <TableHead>
           <TableRow>
